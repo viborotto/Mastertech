@@ -1,5 +1,7 @@
 package com.mastertech.cartoesApi.controller;
 
+import com.mastertech.cartoesApi.exception.ResourceNotFoundException;
+import com.mastertech.cartoesApi.model.Cartao;
 import com.mastertech.cartoesApi.model.Cliente;
 import com.mastertech.cartoesApi.repository.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,11 +18,12 @@ public class ClienteController {
     @Autowired
     private ClienteRepository clienteRepository;
 
-    //POST
+
+    // INSERIR NOVO REGISTRO
     @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping
-    public Cliente save(RequestBody Cliente cliente){
-        return clienteRepository.save();
+    @PostMapping("")
+    public Cliente criarNovoCliente(@RequestBody Cliente cliente) {
+        return clienteRepository.save(cliente);
     }
 
     //GET

@@ -1,5 +1,6 @@
 package com.mastertech.cartoesApi.repository;
 
+import com.mastertech.cartoesApi.model.Cartao;
 import com.mastertech.cartoesApi.model.Cliente;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -8,13 +9,14 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @Repository
 public interface ClienteRepository extends JpaRepository<Cliente, Long> {
 
     List<Cliente> findByNome(String s);
+
+    List<Cliente> findByCartoes(Cartao cartoes);
 
     // SELECT * FROM cliente WHERE cpf
     List<Cliente> findByCpf(String s);

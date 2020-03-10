@@ -58,7 +58,7 @@ public class ClienteController {
         return clienteRepository.findById(id).map(c -> {
             c.setEmail(cliente.getEmail());
             c.setNomeCompleto(cliente.getNomeCompleto());
-            c.setCartao(cliente.getCartao());
+            c.setCartoes(cliente.getCartoes());
             return clienteRepository.save(c);
 
         }).orElseThrow(

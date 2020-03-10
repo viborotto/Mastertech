@@ -1,6 +1,7 @@
 package com.mastertech.cartoesApi.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "clientes")
@@ -19,11 +20,10 @@ public class Cliente {
     @Column(name = "email", nullable = false)
     private String email;
 
-    //Entender chave estrangeira
-    @Column(name = "cartao")
-    private Cartao cartao;
+    @OneToMany(fetch = FetchType.EAGER)
+    @JoinColumn
+    private List<Cartao> cartoes;
 
-    //chave estrangeira entra aqui, e getters and setters??
     public Cliente(String nomeCompleto, String cpf, String email) {
         this.nomeCompleto = nomeCompleto;
         this.cpf = cpf;
@@ -46,8 +46,12 @@ public class Cliente {
         return email;
     }
 
-    public Cartao getCartao() {
-        return cartao;
+    public List<Cartao> getCartoes() {
+        return cartoes;
+    }
+
+    public void setCartoes(List<Cartao> cartoes) {
+        this.cartoes = cartoes;
     }
 
     public void setNomeCompleto(String nomeCompleto) {
@@ -58,7 +62,4 @@ public class Cliente {
         this.email = email;
     }
 
-    public void setCartao(Cartao cartao) {
-        this.cartao = cartao;
-    }
 }

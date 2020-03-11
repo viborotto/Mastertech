@@ -15,8 +15,8 @@ public class Cliente {
     private String name;
 
     //temos que colocar as annotations em ambos os relacionáveis
-    //troquei List por String
-    @OneToMany
+    //troquei List por String e @Column
+    @Column
     private String numero;
 
     public Long getId() {

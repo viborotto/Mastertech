@@ -16,6 +16,7 @@ public class CartaoMapper {
 
         Cliente cliente = new Cliente();
         cliente.setId(createCartaoRequest.getClienteId());
+        
 
         cartao.setCliente(cliente);
         return cartao;

@@ -1,9 +1,7 @@
 package com.mastertch.aula.itau.cliente.cliente.model;
 
-import br.com.mastertech.aula.itau.cartoes.cartao.model.Cartao;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table
@@ -17,8 +15,9 @@ public class Cliente {
     private String name;
 
     //temos que colocar as annotations em ambos os relacionáveis
+    //troquei List por String
     @OneToMany
-    private List<Cartao> cartaoList;
+    private String numero;
 
     public Long getId() {
         return id;
@@ -36,11 +35,12 @@ public class Cliente {
         this.name = name;
     }
 
-    public List<Cartao> getCartaoList() {
-        return cartaoList;
+    public String getNumero() {
+        return numero;
     }
 
-    public void setCartaoList(List<Cartao> cartaoList) {
-        this.cartaoList = cartaoList;
+    public void setNumero(String numero) {
+        this.numero = numero;
     }
 }
+

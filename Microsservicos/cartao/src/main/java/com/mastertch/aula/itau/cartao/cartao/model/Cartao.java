@@ -1,6 +1,5 @@
 package com.mastertch.aula.itau.cartao.cartao.model;
 
-import br.com.mastertech.aula.itau.cartoes.cliente.model.Cliente;
 
 import javax.persistence.*;
 
@@ -15,8 +14,8 @@ public class Cartao {
     @Column
     private String numero;
 
-    @ManyToOne
-    private Cliente cliente;
+//    @ManyToOne
+//    private Cliente cliente;
 
     @Column
     private Boolean ativo;
@@ -45,11 +44,4 @@ public class Cartao {
         this.ativo = ativo;
     }
 
-    public Cliente getCliente() {
-        return cliente;
-    }
-
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
-    }
 }

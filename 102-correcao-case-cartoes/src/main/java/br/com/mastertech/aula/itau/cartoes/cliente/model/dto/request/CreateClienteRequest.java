@@ -3,6 +3,7 @@ package br.com.mastertech.aula.itau.cartoes.cliente.model.dto.request;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
+//definindo os atributos necessarios para a requisição
 public class CreateClienteRequest {
 
     @NotBlank

@@ -16,6 +16,7 @@ public class Cliente {
     @Column
     private String name;
 
+    //temos que colocar as annotations em ambos os relacionáveis
     @OneToMany
     private List<Cartao> cartaoList;
 

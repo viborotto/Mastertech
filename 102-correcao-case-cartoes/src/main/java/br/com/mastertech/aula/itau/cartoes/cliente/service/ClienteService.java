@@ -11,9 +11,12 @@ import java.util.Optional;
 @Service
 public class ClienteService {
 
+    //Normalmente um Serviço se comunica com um Repositório
     @Autowired
     private ClienteRepository clienteRepository;
 
+    //Aqui vamos criar um Cliente, mas só utilizamos as anotacoes Rest no Controller
+    //Controller -> Services -> Repository
     public Cliente create(Cliente cliente) {
 
         cliente = clienteRepository.save(cliente);
@@ -28,6 +31,7 @@ public class ClienteService {
             throw new ClienteNotFoundException();
         }
 
+        //retorna o get pelo ID
         return clienteOptional.get();
     }
 }

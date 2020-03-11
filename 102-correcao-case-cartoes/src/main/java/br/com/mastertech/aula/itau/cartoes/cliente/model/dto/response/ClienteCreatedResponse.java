@@ -1,5 +1,6 @@
 package br.com.mastertech.aula.itau.cartoes.cliente.model.dto.response;
 
+//definindo os atributos necessarios para a requisição
 public class ClienteCreatedResponse {
 
     private Long id;

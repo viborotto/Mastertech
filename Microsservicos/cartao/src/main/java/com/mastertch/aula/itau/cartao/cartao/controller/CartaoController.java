@@ -1,13 +1,14 @@
 package com.mastertch.aula.itau.cartao.cartao.controller;
 
-import br.com.mastertech.aula.itau.cartoes.cartao.model.Cartao;
-import br.com.mastertech.aula.itau.cartoes.cartao.model.CartaoMapper;
-import br.com.mastertech.aula.itau.cartoes.cartao.model.dto.request.CartaoChangeAtivoRequest;
-import br.com.mastertech.aula.itau.cartoes.cartao.model.dto.request.CreateCartaoRequest;
-import br.com.mastertech.aula.itau.cartoes.cartao.model.dto.response.CartaoAtivoChangedResponse;
-import br.com.mastertech.aula.itau.cartoes.cartao.model.dto.response.CartaoCreatedResponse;
-import br.com.mastertech.aula.itau.cartoes.cartao.model.dto.response.CartaoDetailsResponse;
-import br.com.mastertech.aula.itau.cartoes.cartao.service.CartaoService;
+
+import com.mastertch.aula.itau.cartao.cartao.model.Cartao;
+import com.mastertch.aula.itau.cartao.cartao.model.CartaoMapper;
+import com.mastertch.aula.itau.cartao.cartao.model.dto.request.CartaoChangeAtivoRequest;
+import com.mastertch.aula.itau.cartao.cartao.model.dto.request.CreateCartaoRequest;
+import com.mastertch.aula.itau.cartao.cartao.model.dto.response.CartaoAtivoChangedResponse;
+import com.mastertch.aula.itau.cartao.cartao.model.dto.response.CartaoCreatedResponse;
+import com.mastertch.aula.itau.cartao.cartao.model.dto.response.CartaoDetailsResponse;
+import com.mastertch.aula.itau.cartao.cartao.service.CartaoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -35,7 +36,7 @@ public class CartaoController {
     }
 
     @PatchMapping("/{numero}")
-    public CartaoAtivoChangedResponse changeCartaoAtivo(@PathVariable String numero, @Valid  @RequestBody CartaoChangeAtivoRequest cartaoChangeAtivoRequest) {
+    public CartaoAtivoChangedResponse changeCartaoAtivo(@PathVariable String numero, @Valid @RequestBody CartaoChangeAtivoRequest cartaoChangeAtivoRequest) {
         Cartao cartao = cartaoService.changeAtivo(numero, cartaoChangeAtivoRequest.getAtivo());
         return cartaoMapper.toCartaoAtivoChangedResponse(cartao);
     }

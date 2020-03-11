@@ -1,8 +1,9 @@
 package com.mastertch.aula.itau.cliente.cliente.model;
 
-import br.com.mastertech.aula.itau.cartoes.cliente.model.dto.request.CreateClienteRequest;
-import br.com.mastertech.aula.itau.cartoes.cliente.model.dto.response.ClienteCreatedResponse;
-import br.com.mastertech.aula.itau.cartoes.cliente.model.dto.response.ClienteDetailsResponse;
+
+import com.mastertch.aula.itau.cliente.cliente.model.dto.request.CreateClienteRequest;
+import com.mastertch.aula.itau.cliente.cliente.model.dto.response.ClienteCreatedResponse;
+import com.mastertch.aula.itau.cliente.cliente.model.dto.response.ClienteDetailsResponse;
 import org.springframework.stereotype.Component;
 
 //Função:

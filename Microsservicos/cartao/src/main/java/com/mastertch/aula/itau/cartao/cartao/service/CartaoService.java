@@ -20,7 +20,6 @@ public class CartaoService {
 
     public Cartao create(Cartao cartao) {
         cartao.setAtivo(false);
-
         Cliente byId = clienteService.getById(cartao.getCliente().getId());
         cartao.setCliente(byId);
 

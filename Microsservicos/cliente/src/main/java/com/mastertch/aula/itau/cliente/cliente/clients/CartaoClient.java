@@ -11,6 +11,6 @@ public interface CartaoClient {
 
     //rota tem que ta igual, parametros tbm, requestbody
     @GetMapping("/cartoes/{numero}")
-    CartaoDTO getCartaoByNumero(@PathVariable String numero);
+    CartaoDTO getByNumero(@PathVariable String numero);
 
 }

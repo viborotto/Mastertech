@@ -1,7 +1,5 @@
 package com.example.pagamento.pagamento.model;
 
-import br.com.mastertech.aula.itau.cartoes.cartao.model.Cartao;
-
 import javax.persistence.*;
 import java.math.BigDecimal;
 
@@ -19,8 +17,9 @@ public class Pagamento {
     @Column
     private BigDecimal valor;
 
-    @ManyToOne
-    private Cartao cartao;
+    //@Column e getter and setter
+    @Column
+    private String cartao;
 
     public Long getId() {
         return id;
@@ -46,11 +45,11 @@ public class Pagamento {
         this.valor = valor;
     }
 
-    public Cartao getCartao() {
+    public String getCartao() {
         return cartao;
     }
 
-    public void setCartao(Cartao cartao) {
+    public void setCartao(String cartao) {
         this.cartao = cartao;
     }
 }

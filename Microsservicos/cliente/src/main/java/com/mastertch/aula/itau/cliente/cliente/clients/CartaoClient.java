@@ -13,4 +13,6 @@ public interface CartaoClient {
     @GetMapping("/cartoes/{numero}")
     CartaoDTO getByNumero(@PathVariable String numero);
 
+    //todo pagamento
+
 }

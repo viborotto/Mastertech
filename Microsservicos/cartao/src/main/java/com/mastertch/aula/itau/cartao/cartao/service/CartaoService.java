@@ -1,6 +1,8 @@
 package com.mastertch.aula.itau.cartao.cartao.service;
 
 
+import com.mastertch.aula.itau.cartao.cartao.clients.ClienteClient;
+import com.mastertch.aula.itau.cartao.cartao.clients.dto.ClienteDTO;
 import com.mastertch.aula.itau.cartao.cartao.exceptions.CartaoNotFoundException;
 import com.mastertch.aula.itau.cartao.cartao.model.Cartao;
 import com.mastertch.aula.itau.cartao.cartao.repository.CartaoRepository;
@@ -15,13 +17,19 @@ public class CartaoService {
     @Autowired
     private CartaoRepository cartaoRepository;
 
+    //substitui ClienteService para ClienteClient
     @Autowired
-    private ClienteService clienteService;
+    private ClienteClient clienteClient;
 
+    //Cliente -> ClienteDTO | ClienteService -> ClienteClient
     public Cartao create(Cartao cartao) {
         cartao.setAtivo(false);
-        Cliente byId = clienteService.getById(cartao.getCliente().getId());
-        cartao.setCliente(byId);
+
+        ClienteDTO byId = clienteClient.getById(cartao.getId());
+//        Cliente byId = clienteService.getById(cartao.getCliente().getId());
+
+        cartao.setId(byId.getId());
+//        cartao.setCliente(byId);
 
         return cartaoRepository.save(cartao);
     }

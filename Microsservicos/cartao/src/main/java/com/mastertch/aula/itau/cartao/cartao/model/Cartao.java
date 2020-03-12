@@ -14,8 +14,8 @@ public class Cartao {
     @Column
     private String numero;
 
-//    @ManyToOne
-//    private Cliente cliente;
+    @Column
+    private Long clientId;
 
     @Column
     private Boolean ativo;
@@ -44,4 +44,11 @@ public class Cartao {
         this.ativo = ativo;
     }
 
+    public Long getClientId() {
+        return clientId;
+    }
+
+    public void setClientId(Long clientId) {
+        this.clientId = clientId;
+    }
 }

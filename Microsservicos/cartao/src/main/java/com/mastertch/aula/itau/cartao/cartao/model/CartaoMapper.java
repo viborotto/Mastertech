@@ -1,6 +1,7 @@
 package com.mastertch.aula.itau.cartao.cartao.model;
 
 
+import com.mastertch.aula.itau.cartao.cartao.clients.dto.ClienteDTO;
 import com.mastertch.aula.itau.cartao.cartao.model.dto.request.CreateCartaoRequest;
 import com.mastertch.aula.itau.cartao.cartao.model.dto.response.CartaoAtivoChangedResponse;
 import com.mastertch.aula.itau.cartao.cartao.model.dto.response.CartaoCreatedResponse;
@@ -25,10 +26,10 @@ public class CartaoMapper {
 
     public CartaoCreatedResponse toCartaoCreatedResponse(Cartao cartao) {
         CartaoCreatedResponse cartaoCreatedResponse = new CartaoCreatedResponse();
-        
+
         cartaoCreatedResponse.setId(cartao.getId());
         cartaoCreatedResponse.setNumero(cartao.getNumero());
-        cartaoCreatedResponse.setClienteId(cartao.setClientId().getId());
+        cartaoCreatedResponse.setClienteId(cartao.getClientId());
         cartaoCreatedResponse.setAtivo(cartao.getAtivo());
 
         return cartaoCreatedResponse;
@@ -39,7 +40,7 @@ public class CartaoMapper {
 
         cartaoAtivoChangedResponse.setId(cartao.getId());
         cartaoAtivoChangedResponse.setNumero(cartao.getNumero());
-//        cartaoAtivoChangedResponse.setClienteId(cartao.getCliente().getId());
+        cartaoAtivoChangedResponse.setClienteId(cartao.getClientId());
         cartaoAtivoChangedResponse.setAtivo(cartao.getAtivo());
 
         return cartaoAtivoChangedResponse;
@@ -50,7 +51,7 @@ public class CartaoMapper {
 
         cartaoDetailsResponse.setId(cartao.getId());
         cartaoDetailsResponse.setNumero(cartao.getNumero());
-//        cartaoDetailsResponse.setClienteId(cartao.getCliente().getId());
+        cartaoDetailsResponse.setClienteId(cartao.getClientId());
         cartaoDetailsResponse.setAtivo(cartao.getAtivo());
 
         return cartaoDetailsResponse;

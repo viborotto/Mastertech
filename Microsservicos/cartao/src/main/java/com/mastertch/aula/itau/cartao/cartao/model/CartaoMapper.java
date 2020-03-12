@@ -8,6 +8,7 @@ import com.mastertch.aula.itau.cartao.cartao.model.dto.response.CartaoCreatedRes
 import com.mastertch.aula.itau.cartao.cartao.model.dto.response.CartaoDetailsResponse;
 import org.springframework.stereotype.Component;
 
+//porque ta retornando cartaoId: null??
 @Component
 public class CartaoMapper {
 

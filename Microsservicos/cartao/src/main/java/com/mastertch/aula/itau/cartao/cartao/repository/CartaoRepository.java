@@ -10,4 +10,6 @@ public interface CartaoRepository extends CrudRepository<Cartao, Long> {
 
     Optional<Cartao> getByNumero(String numero);
 
+    Optional<Cartao> findById(Long id);
+
 }

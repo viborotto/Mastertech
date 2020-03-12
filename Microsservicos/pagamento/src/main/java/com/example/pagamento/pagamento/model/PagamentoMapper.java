@@ -1,5 +1,6 @@
 package com.example.pagamento.pagamento.model;
 
+import com.example.pagamento.pagamento.clients.dto.CartaoDTO;
 import com.example.pagamento.pagamento.model.dto.request.CreatePagamentoRequest;
 import com.example.pagamento.pagamento.model.dto.response.PagamentoCreatedResponse;
 import com.example.pagamento.pagamento.model.dto.response.PagamentoSummaryInListResponse;
@@ -13,7 +14,8 @@ public class PagamentoMapper {
         pagamento.setDescricao(createPagamentoRequest.getDescricao());
         pagamento.setValor(createPagamentoRequest.getValor());
 
-        Cartao cartao = new Cartao();
+        //editado
+        CartaoDTO cartao = new CartaoDTO();
         cartao.setId(createPagamentoRequest.getCartao_id());
 
         pagamento.setCartao(cartao);

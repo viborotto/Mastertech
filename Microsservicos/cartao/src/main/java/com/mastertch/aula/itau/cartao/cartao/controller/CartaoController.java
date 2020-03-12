@@ -47,4 +47,10 @@ public class CartaoController {
         return cartaoMapper.toCartaoDetailsResponse(cartao);
     }
 
+    @GetMapping("/{id}")
+    public CartaoDetailsResponse getById(@PathVariable Long id) {
+        Cartao cartao = cartaoService.getById(id);
+        return cartaoMapper.toCartaoDetailsResponse(cartao);
+    }
+
 }

@@ -25,12 +25,12 @@ public class ClienteService {
 
     //Usando o objeto do Cartao
     public Cliente create(Cliente cliente) {
-        CartaoDTO byNumero = null;
-        try {
-            byNumero = cartaoClient.getByNumero(cliente.getNumero());
-        } catch (FeignException.FeignClientException.NotFound e) {
-            throw new CartaoNotFoundException();
-        }
+//        CartaoDTO byNumero = null;
+//        try {
+//            byNumero = cartaoClient.getByNumero(cliente.getNumero());
+//        } catch (FeignException.FeignClientException.NotFound e) {
+//            throw new CartaoNotFoundException();
+//        }
         cliente = clienteRepository.save(cliente);
 
         return cliente;

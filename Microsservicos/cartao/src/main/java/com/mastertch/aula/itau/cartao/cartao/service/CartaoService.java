@@ -28,7 +28,7 @@ public class CartaoService {
         ClienteDTO byId = clienteClient.getById(cartao.getId());
 //        Cliente byId = clienteService.getById(cartao.getCliente().getId());
 
-        cartao.setId(byId.getId());
+        cartao.setId(byId.getClientId());
 //        cartao.setCliente(byId);
 
         return cartaoRepository.save(cartao);

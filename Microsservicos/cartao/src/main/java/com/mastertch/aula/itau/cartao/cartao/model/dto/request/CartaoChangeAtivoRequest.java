@@ -4,7 +4,7 @@ import javax.validation.constraints.NotNull;
 
 public class CartaoChangeAtivoRequest {
 
-    @NotNull
+
     private Boolean ativo;
 
     public Boolean getAtivo() {

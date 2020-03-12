@@ -6,18 +6,18 @@ import java.util.List;
 
 public class ClienteDTO {
 
-    private Long id;
+    private Long clientId;
 
     private String name;
 
     private List<Cartao> cartaoList;
 
-    public Long getId() {
-        return id;
+    public Long getClientId() {
+        return clientId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setClientId(Long clientId) {
+        this.clientId = clientId;
     }
 
     public String getName() {

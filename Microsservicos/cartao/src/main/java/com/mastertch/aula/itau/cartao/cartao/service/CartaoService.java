@@ -6,6 +6,7 @@ import com.mastertch.aula.itau.cartao.cartao.clients.dto.ClienteDTO;
 import com.mastertch.aula.itau.cartao.cartao.exceptions.CartaoNotFoundException;
 import com.mastertch.aula.itau.cartao.cartao.model.Cartao;
 import com.mastertch.aula.itau.cartao.cartao.repository.CartaoRepository;
+import org.hibernate.tool.schema.internal.exec.ScriptTargetOutputToFile;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,11 +25,12 @@ public class CartaoService {
     //Cliente -> ClienteDTO | ClienteService -> ClienteClient
     public Cartao create(Cartao cartao) {
         cartao.setAtivo(false);
+        System.out.println(cartao.getClientId());
 
         ClienteDTO byId = clienteClient.getById(cartao.getClientId());
 //        Cliente byId = clienteService.getById(cartao.getCliente().getId());
 
-        cartao.setId(byId.getClientId());
+        cartao.setClientId(byId.getClientId());
 //        cartao.setCliente(byId);
 
         return cartaoRepository.save(cartao);

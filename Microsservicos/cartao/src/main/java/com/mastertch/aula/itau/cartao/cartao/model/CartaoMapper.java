@@ -13,6 +13,7 @@ public class CartaoMapper {
     public Cartao toCartao(CreateCartaoRequest createCartaoRequest) {
         Cartao cartao = new Cartao();
         cartao.setNumero(createCartaoRequest.getNumero());
+        cartao.setClientId(createCartaoRequest.getClienteId());
 
 //        Cliente cliente = new Cliente();
 //        cliente.setId(createCartaoRequest.getClienteId());
@@ -24,10 +25,10 @@ public class CartaoMapper {
 
     public CartaoCreatedResponse toCartaoCreatedResponse(Cartao cartao) {
         CartaoCreatedResponse cartaoCreatedResponse = new CartaoCreatedResponse();
-
+        
         cartaoCreatedResponse.setId(cartao.getId());
         cartaoCreatedResponse.setNumero(cartao.getNumero());
-//        cartaoCreatedResponse.setClienteId(cartao.getCliente().getId());
+        cartaoCreatedResponse.setClienteId(cartao.setClientId().getId());
         cartaoCreatedResponse.setAtivo(cartao.getAtivo());
 
         return cartaoCreatedResponse;

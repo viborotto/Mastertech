@@ -2,12 +2,9 @@ package com.mastertch.aula.itau.cliente.cliente.service;
 
 
 import com.mastertch.aula.itau.cliente.cliente.clients.CartaoClient;
-import com.mastertch.aula.itau.cliente.cliente.clients.CartaoNotFoundException;
-import com.mastertch.aula.itau.cliente.cliente.clients.dto.CartaoDTO;
 import com.mastertch.aula.itau.cliente.cliente.exceptions.ClienteNotFoundException;
 import com.mastertch.aula.itau.cliente.cliente.model.Cliente;
 import com.mastertch.aula.itau.cliente.cliente.repository.ClienteRepository;
-import feign.FeignException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

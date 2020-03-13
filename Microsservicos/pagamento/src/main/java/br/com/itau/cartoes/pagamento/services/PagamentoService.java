@@ -39,7 +39,7 @@ public class PagamentoService
         	throw new CartaoNotFoundException();
         }
 
-    	if(!cartao.isAtivo())
+    	if(!cartao.getAtivo())
     	{
     		throw new CartaoNaoAtivoException();
     	}

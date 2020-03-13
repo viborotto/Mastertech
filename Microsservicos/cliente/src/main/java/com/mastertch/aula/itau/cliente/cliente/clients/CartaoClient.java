@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 //ja sabe que é o microsservico do cartao,  isso pode usar tambem no consumo de API, p.e governo
-@FeignClient(name = "cartao", fallback = CartaoClientFallback.class)
+@FeignClient(name = "cartao")
 public interface CartaoClient {
 
     //rota tem que ta igual, parametros tbm, requestbody

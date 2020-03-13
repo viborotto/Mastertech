@@ -13,10 +13,10 @@ public class Pagamento
 {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long id;
+	private int id;
 	
 	@Column
-	private Long cartaoId;
+	private int cartaoId;
 	
 	@Column
 	private String descricao;
@@ -24,19 +24,19 @@ public class Pagamento
 	@Column
 	private Double valor;
 
-	public Long getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
-	public Long getCartaoId() {
+	public int getCartaoId() {
 		return cartaoId;
 	}
 
-	public void setCartaoId(Long cartaoId) {
+	public void setCartaoId(int cartaoId) {
 		this.cartaoId = cartaoId;
 	}
 

@@ -25,7 +25,7 @@ public class PagamentoMapper
 	{
 		CreatePagamentoResponse createPagamentoResponse = new CreatePagamentoResponse();
 		createPagamentoResponse.setId(pagamento.getId());
-		createPagamentoResponse.setCartao_id(pagamento.getCartaoId());
+		createPagamentoResponse.setCartao_id((long) pagamento.getCartaoId());
 		createPagamentoResponse.setDescricao(pagamento.getDescricao());
 		createPagamentoResponse.setValor(pagamento.getValor());
 		return createPagamentoResponse;
@@ -40,7 +40,7 @@ public class PagamentoMapper
 		{
 			ConsultaPagamentoResponse consultaPagamentoResponse = new ConsultaPagamentoResponse();
 			consultaPagamentoResponse.setId(pagamento.getId());
-			consultaPagamentoResponse.setCartao_id(pagamento.getCartaoId());
+			consultaPagamentoResponse.setCartao_id((long) pagamento.getCartaoId());
 			consultaPagamentoResponse.setDescricao(pagamento.getDescricao());
 			consultaPagamentoResponse.setValor(pagamento.getValor());
 			listaConsultaPagamentoResponse.add(consultaPagamentoResponse);

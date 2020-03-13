@@ -45,7 +45,7 @@ public class CartaoService {
 
         Cartao cartao = getByNumero(numero);
 
-        cartao.setAtivo(ativo);
+        cartao.setAtivo(ativo.getAtivo());
 
         return cartaoRepository.save(cartao);
     }

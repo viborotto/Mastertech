@@ -11,7 +11,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @SpringBootApplication
 @EnableFeignClients
 @RibbonClients(defaultConfiguration = RibbonConfiguration.class)
-@EnableCircuitBreaker
+//@EnableCircuitBreaker
 public class ClienteApplication {
 
 	public static void main(String[] args) {

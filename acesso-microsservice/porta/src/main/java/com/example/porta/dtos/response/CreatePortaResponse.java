@@ -1,26 +1,13 @@
-package com.example.porta.models;
+package com.example.porta.dtos.response;
 
+//de acordo com o contrato retorna só id, andar, sala
+public class CreatePortaResponse {
 
-import javax.persistence.*;
-
-//ok
-@Entity
-@Table
-public class Porta {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column
     private int andar;
 
-    @Column
     private String sala;
-
-    //todas as portas começam sem acesso
-    @Column
-    private Boolean acesso = false;
 
     public Long getId() {
         return id;

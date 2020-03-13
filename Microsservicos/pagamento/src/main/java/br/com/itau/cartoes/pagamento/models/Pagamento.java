@@ -13,39 +13,46 @@ public class Pagamento
 {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
+	private Long id;
 	
 	@Column
-	private int cartaoId;
+	private Long cartaoId;
 	
 	@Column
 	private String descricao;
 	
 	@Column
-	private double valor;
+	private Double valor;
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(int id) {
+
+	public void setId(Long id) {
 		this.id = id;
 	}
-	public int getCartaoId() {
+
+	public Long getCartaoId() {
 		return cartaoId;
 	}
-	public void setCartaoId(int cartaoId) {
+
+	public void setCartaoId(Long cartaoId) {
 		this.cartaoId = cartaoId;
 	}
+
 	public String getDescricao() {
 		return descricao;
 	}
+
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	public double getValor() {
+
+	public Double getValor() {
 		return valor;
 	}
-	public void setValor(double valor) {
+
+	public void setValor(Double valor) {
 		this.valor = valor;
 	}
 }

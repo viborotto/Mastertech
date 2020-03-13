@@ -2,33 +2,40 @@ package br.com.itau.cartoes.pagamento.dtos;
 
 public class CreatePagamentoResponse 
 {
-	private int id;
-	private int cartao_id;
+	private Long id;
+	private Long cartao_id;
 	private String descricao;
-	private double valor;
-	
-	public int getId() {
+	private Double valor;
+
+	public Long getId() {
 		return id;
 	}
-	public void setId(int id) {
+
+	public void setId(Long id) {
 		this.id = id;
 	}
-	public int getCartao_id() {
+
+	public Long getCartao_id() {
 		return cartao_id;
 	}
-	public void setCartao_id(int cartao_id) {
+
+	public void setCartao_id(Long cartao_id) {
 		this.cartao_id = cartao_id;
 	}
+
 	public String getDescricao() {
 		return descricao;
 	}
+
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	public double getValor() {
+
+	public Double getValor() {
 		return valor;
 	}
-	public void setValor(double valor) {
+
+	public void setValor(Double valor) {
 		this.valor = valor;
 	}
 }

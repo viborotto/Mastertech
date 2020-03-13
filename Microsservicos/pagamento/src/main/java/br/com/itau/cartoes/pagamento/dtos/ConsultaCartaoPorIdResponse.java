@@ -2,33 +2,40 @@ package br.com.itau.cartoes.pagamento.dtos;
 
 public class ConsultaCartaoPorIdResponse 
 {
-	private int id;
+	private Long id;
 	private String numero;
-	private int clienteId;
-	private boolean ativo = false;
+	private Long clienteId;
+	private Boolean ativo = false;
 
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(int id) {
+
+	public void setId(Long id) {
 		this.id = id;
 	}
+
 	public String getNumero() {
 		return numero;
 	}
+
 	public void setNumero(String numero) {
 		this.numero = numero;
 	}
-	public boolean isAtivo() {
-		return ativo;
-	}
-	public void setAtivo(boolean ativo) {
-		this.ativo = ativo;
-	}
-	public int getClienteId() {
+
+	public Long getClienteId() {
 		return clienteId;
 	}
-	public void setClienteId(int clienteId) {
+
+	public void setClienteId(Long clienteId) {
 		this.clienteId = clienteId;
+	}
+
+	public Boolean getAtivo() {
+		return ativo;
+	}
+
+	public void setAtivo(Boolean ativo) {
+		this.ativo = ativo;
 	}
 }

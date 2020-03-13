@@ -5,7 +5,7 @@ import com.mastertch.aula.itau.cliente.cliente.model.Cliente;
 import com.mastertch.aula.itau.cliente.cliente.model.ClienteMapper;
 import com.mastertch.aula.itau.cliente.cliente.model.dto.request.CreateClienteRequest;
 import com.mastertch.aula.itau.cliente.cliente.model.dto.response.ClienteCreatedResponse;
-import com.mastertch.aula.itau.cliente.cliente.model.dto.response.ClienteDetailsResponse;
+import com.mastertch.aula.itau.cliente.cliente.model.dto.response.ConsultaClienteResponse;
 import com.mastertch.aula.itau.cliente.cliente.service.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -34,9 +34,9 @@ public class ClienteController {
     }
 
     @GetMapping("/{id}")
-    public ClienteDetailsResponse getById(@PathVariable Long id) {
+    public ConsultaClienteResponse getById(@PathVariable Long id) {
         Cliente byId = clienteService.getById(id);
-        return clienteMapper.toClienteDetailsResponse(byId);
+        return clienteMapper.toConsultaClienteResponse(byId);
     }
 
 }

@@ -3,7 +3,7 @@ package com.mastertch.aula.itau.cliente.cliente.model;
 
 import com.mastertch.aula.itau.cliente.cliente.model.dto.request.CreateClienteRequest;
 import com.mastertch.aula.itau.cliente.cliente.model.dto.response.ClienteCreatedResponse;
-import com.mastertch.aula.itau.cliente.cliente.model.dto.response.ClienteDetailsResponse;
+import com.mastertch.aula.itau.cliente.cliente.model.dto.response.ConsultaClienteResponse;
 import org.springframework.stereotype.Component;
 
 //Função:
@@ -23,11 +23,12 @@ public class ClienteMapper {
         return clienteCreatedResponse;
     }
 
-    public ClienteDetailsResponse toClienteDetailsResponse(Cliente cliente) {
-        ClienteDetailsResponse clienteDetailsResponse = new ClienteDetailsResponse();
-        clienteDetailsResponse.setId(cliente.getId());
-        clienteDetailsResponse.setName(cliente.getName());
-        return clienteDetailsResponse;
+    //toConsultaClienteResponse
+    public ConsultaClienteResponse toConsultaClienteResponse(Cliente cliente) {
+        ConsultaClienteResponse consultaClienteResponse = new ConsultaClienteResponse();
+        consultaClienteResponse.setId(cliente.getId());
+        consultaClienteResponse.setName(cliente.getName());
+        return consultaClienteResponse;
     }
 
 }

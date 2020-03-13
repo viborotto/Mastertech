@@ -3,11 +3,12 @@ package com.mastertch.aula.itau.cartao.cartao.controller;
 
 import com.mastertch.aula.itau.cartao.cartao.model.Cartao;
 import com.mastertch.aula.itau.cartao.cartao.model.CartaoMapper;
-import com.mastertch.aula.itau.cartao.cartao.model.dto.request.CartaoChangeAtivoRequest;
+import com.mastertch.aula.itau.cartao.cartao.model.dto.request.AtivaCartaoRequest;
 import com.mastertch.aula.itau.cartao.cartao.model.dto.request.CreateCartaoRequest;
-import com.mastertch.aula.itau.cartao.cartao.model.dto.response.CartaoAtivoChangedResponse;
-import com.mastertch.aula.itau.cartao.cartao.model.dto.response.CartaoCreatedResponse;
-import com.mastertch.aula.itau.cartao.cartao.model.dto.response.CartaoDetailsResponse;
+import com.mastertch.aula.itau.cartao.cartao.model.dto.response.AtivaCartaoResponse;
+import com.mastertch.aula.itau.cartao.cartao.model.dto.response.ConsultaCartaoPorIdResponse;
+import com.mastertch.aula.itau.cartao.cartao.model.dto.response.ConsultaCartaoResponse;
+import com.mastertch.aula.itau.cartao.cartao.model.dto.response.CreateCartaoResponse;
 import com.mastertch.aula.itau.cartao.cartao.service.CartaoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -27,30 +28,32 @@ public class CartaoController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public CartaoCreatedResponse create(@Valid @RequestBody CreateCartaoRequest createCartaoRequest) {
-        Cartao cartao = cartaoMapper.toCartao(createCartaoRequest);
+    public CreateCartaoResponse create(@Valid @RequestBody CreateCartaoRequest createCartaoRequest) {
+        Cartao cartao = cartaoMapper.fromCreateCartaoRequestToCartao(createCartaoRequest);
 
         cartao = cartaoService.create(cartao);
 
-        return cartaoMapper.toCartaoCreatedResponse(cartao);
+        return cartaoMapper.toCreateCartaoResponse(cartao);
     }
 
     @PatchMapping("/{numero}")
-    public CartaoAtivoChangedResponse changeCartaoAtivo(@PathVariable String numero, @Valid @RequestBody CartaoChangeAtivoRequest cartaoChangeAtivoRequest) {
-        Cartao cartao = cartaoService.changeAtivo(numero, cartaoChangeAtivoRequest.getAtivo());
-        return cartaoMapper.toCartaoAtivoChangedResponse(cartao);
+    @ResponseStatus(HttpStatus.OK)
+    public AtivaCartaoResponse changeCartaoAtivo(@PathVariable String numero, @Valid @RequestBody AtivaCartaoRequest ativaCartaoRequest) {
+        Cartao cartao = cartaoMapper.fromAtivaCartaoRequestToCartao(ativaCartaoRequest);
+        return cartaoMapper.toAtivaCartaoResponse(cartaoService.changeAtivo(numero, cartao));
     }
 
     @GetMapping("/{numero}")
-    public CartaoDetailsResponse getByNumero(@PathVariable String numero) {
+    @ResponseStatus(HttpStatus.OK)
+    public ConsultaCartaoResponse getByNumero(@PathVariable String numero) {
         Cartao cartao = cartaoService.getByNumero(numero);
-        return cartaoMapper.toCartaoDetailsResponse(cartao);
+        return cartaoMapper.toConsultaCartaoResponse(cartao);
     }
 
-    @GetMapping("/{id}")
-    public CartaoDetailsResponse getById(@PathVariable Long id) {
-        Cartao cartao = cartaoService.getById(id);
-        return cartaoMapper.toCartaoDetailsResponse(cartao);
+    @GetMapping("/id/{cartaoId}")
+    @ResponseStatus(HttpStatus.OK)
+    public ConsultaCartaoPorIdResponse getById(@PathVariable Long cartaoId) {
+        return cartaoMapper.toConsultaCartaoPorIdResponse(cartaoService.getById(cartaoId));
     }
 
 }

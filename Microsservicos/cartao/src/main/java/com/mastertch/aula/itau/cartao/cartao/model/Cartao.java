@@ -18,7 +18,7 @@ public class Cartao {
     private Long clientId;
 
     @Column
-    private Boolean ativo;
+    private Boolean ativo = false;
 
     public Long getId() {
         return id;

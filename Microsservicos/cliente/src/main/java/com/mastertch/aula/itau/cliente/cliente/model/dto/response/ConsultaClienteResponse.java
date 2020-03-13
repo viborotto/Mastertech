@@ -1,7 +1,7 @@
 package com.mastertch.aula.itau.cliente.cliente.model.dto.response;
 
-//
-public class ClienteDetailsResponse {
+//era details ClienteDetailsResponse
+public class ConsultaClienteResponse {
 
     private Long id;
 

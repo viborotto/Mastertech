@@ -7,7 +7,6 @@ import javax.validation.constraints.Size;
 public class CreateCartaoRequest {
 
     @NotBlank
-    @Size(min = 3, max = 9)
     private String numero;
 
     @NotNull

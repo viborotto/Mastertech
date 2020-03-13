@@ -36,7 +36,13 @@ public class CartaoService {
         return cartaoRepository.save(cartao);
     }
 
-    public Cartao changeAtivo(String numero, Boolean ativo) {
+    public Cartao changeAtivo(String numero, Cartao ativo) {
+        Optional<Cartao> cartaoOptional = cartaoRepository.getByNumero(numero);
+
+        if(!cartaoOptional.isPresent()) {
+            throw new CartaoNotFoundException();
+        }
+
         Cartao cartao = getByNumero(numero);
 
         cartao.setAtivo(ativo);
@@ -44,9 +50,11 @@ public class CartaoService {
         return cartaoRepository.save(cartao);
     }
 
-    public Cartao getById(Long id) {
-        Optional<Cartao> cartaoOptional = cartaoRepository.findById(id);
 
+
+    public Cartao getByNumero(String numero) {
+        Optional<Cartao> cartaoOptional = cartaoRepository.getByNumero(numero);
+        //da pra colocar o numberFormatException aqui pra verificar se é double
         if(!cartaoOptional.isPresent()) {
             throw new CartaoNotFoundException();
         }
@@ -54,8 +62,8 @@ public class CartaoService {
         return cartaoOptional.get();
     }
 
-    public Cartao getByNumero(String numero) {
-        Optional<Cartao> cartaoOptional = cartaoRepository.getByNumero(numero);
+    public Cartao getById(Long id) {
+        Optional<Cartao> cartaoOptional = cartaoRepository.findById(id);
 
         if(!cartaoOptional.isPresent()) {
             throw new CartaoNotFoundException();

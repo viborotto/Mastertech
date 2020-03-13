@@ -1,60 +1,70 @@
 package com.mastertch.aula.itau.cartao.cartao.model;
 
 
-import com.mastertch.aula.itau.cartao.cartao.clients.dto.ClienteDTO;
+import com.mastertch.aula.itau.cartao.cartao.model.dto.request.AtivaCartaoRequest;
 import com.mastertch.aula.itau.cartao.cartao.model.dto.request.CreateCartaoRequest;
-import com.mastertch.aula.itau.cartao.cartao.model.dto.response.CartaoAtivoChangedResponse;
-import com.mastertch.aula.itau.cartao.cartao.model.dto.response.CartaoCreatedResponse;
-import com.mastertch.aula.itau.cartao.cartao.model.dto.response.CartaoDetailsResponse;
+import com.mastertch.aula.itau.cartao.cartao.model.dto.response.AtivaCartaoResponse;
+import com.mastertch.aula.itau.cartao.cartao.model.dto.response.ConsultaCartaoPorIdResponse;
+import com.mastertch.aula.itau.cartao.cartao.model.dto.response.ConsultaCartaoResponse;
+import com.mastertch.aula.itau.cartao.cartao.model.dto.response.CreateCartaoResponse;
 import org.springframework.stereotype.Component;
 
 //porque ta retornando cartaoId: null??
 @Component
 public class CartaoMapper {
 
-    public Cartao toCartao(CreateCartaoRequest createCartaoRequest) {
+    public Cartao fromCreateCartaoRequestToCartao(CreateCartaoRequest createCartaoRequest) {
         Cartao cartao = new Cartao();
         cartao.setNumero(createCartaoRequest.getNumero());
         cartao.setClientId(createCartaoRequest.getClienteId());
 
-//        Cliente cliente = new Cliente();
-//        cliente.setId(createCartaoRequest.getClienteId());
-//
-//
-//        cartao.setCliente(cliente);
         return cartao;
     }
 
-    public CartaoCreatedResponse toCartaoCreatedResponse(Cartao cartao) {
-        CartaoCreatedResponse cartaoCreatedResponse = new CartaoCreatedResponse();
-
-        cartaoCreatedResponse.setId(cartao.getId());
-        cartaoCreatedResponse.setNumero(cartao.getNumero());
-        cartaoCreatedResponse.setClienteId(cartao.getClientId());
-        cartaoCreatedResponse.setAtivo(cartao.getAtivo());
-
-        return cartaoCreatedResponse;
+    public Cartao fromAtivaCartaoRequestToCartao(AtivaCartaoRequest ativaCartaoRequest) {
+        Cartao cartao = new Cartao();
+        cartao.setAtivo(ativaCartaoRequest.isAtivo());
+        return cartao;
     }
 
-    public CartaoAtivoChangedResponse toCartaoAtivoChangedResponse(Cartao cartao) {
-        CartaoAtivoChangedResponse cartaoAtivoChangedResponse = new CartaoAtivoChangedResponse();
+    public CreateCartaoResponse toCreateCartaoResponse(Cartao cartao) {
+        CreateCartaoResponse createCartaoResponse = new CreateCartaoResponse();
 
-        cartaoAtivoChangedResponse.setId(cartao.getId());
-        cartaoAtivoChangedResponse.setNumero(cartao.getNumero());
-        cartaoAtivoChangedResponse.setClienteId(cartao.getClientId());
-        cartaoAtivoChangedResponse.setAtivo(cartao.getAtivo());
+        createCartaoResponse.setId(cartao.getId());
+        createCartaoResponse.setNumero(cartao.getNumero());
+        createCartaoResponse.setClienteId(cartao.getClientId());
+        createCartaoResponse.setAtivo(cartao.getAtivo());
 
-        return cartaoAtivoChangedResponse;
+        return createCartaoResponse;
     }
 
-    public CartaoDetailsResponse toCartaoDetailsResponse(Cartao cartao) {
-        CartaoDetailsResponse cartaoDetailsResponse = new CartaoDetailsResponse();
+    public AtivaCartaoResponse toAtivaCartaoResponse(Cartao cartao) {
+        AtivaCartaoResponse ativaCartaoResponse = new AtivaCartaoResponse();
 
-        cartaoDetailsResponse.setId(cartao.getId());
-        cartaoDetailsResponse.setNumero(cartao.getNumero());
-        cartaoDetailsResponse.setClienteId(cartao.getClientId());
-        cartaoDetailsResponse.setAtivo(cartao.getAtivo());
+        ativaCartaoResponse.setId(cartao.getId());
+        ativaCartaoResponse.setNumero(cartao.getNumero());
+        ativaCartaoResponse.setClienteId(cartao.getClientId());
+        ativaCartaoResponse.setAtivo(cartao.getAtivo());
 
-        return cartaoDetailsResponse;
+        return ativaCartaoResponse;
+    }
+
+    public ConsultaCartaoResponse toConsultaCartaoResponse(Cartao cartao) {
+        ConsultaCartaoResponse consultaCartaoReponse = new ConsultaCartaoResponse();
+        consultaCartaoReponse.setId(cartao.getId());
+        consultaCartaoReponse.setNumero(cartao.getNumero());
+        consultaCartaoReponse.setClienteId(cartao.getClientId());
+        return consultaCartaoReponse;
+    }
+
+    public ConsultaCartaoPorIdResponse toConsultaCartaoPorIdResponse(Cartao cartao) {
+        ConsultaCartaoPorIdResponse consultaCartaoPorIdResponse = new ConsultaCartaoPorIdResponse();
+
+        consultaCartaoPorIdResponse.setId(cartao.getId());
+        consultaCartaoPorIdResponse.setNumero(cartao.getNumero());
+        consultaCartaoPorIdResponse.setClienteId(cartao.getClientId());
+        consultaCartaoPorIdResponse.setAtivo(cartao.getAtivo());
+
+        return consultaCartaoPorIdResponse;
     }
 }

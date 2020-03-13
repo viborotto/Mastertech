@@ -1,13 +1,9 @@
 package com.mastertch.aula.itau.cartao.cartao.model.dto.response;
 
-public class CartaoCreatedResponse {
-
+public class AtivaCartaoResponse {
     private Long id;
-
     private String numero;
-
     private Long clienteId;
-
     private Boolean ativo;
 
     public Long getId() {

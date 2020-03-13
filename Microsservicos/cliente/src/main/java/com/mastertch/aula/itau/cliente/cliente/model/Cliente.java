@@ -16,8 +16,7 @@ public class Cliente {
 
     //temos que colocar as annotations em ambos os relacionáveis
     //troquei List por String e @Column
-    @Column
-    private String numero;
+
 
     public Long getId() {
         return id;
@@ -33,14 +32,6 @@ public class Cliente {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getNumero() {
-        return numero;
-    }
-
-    public void setNumero(String numero) {
-        this.numero = numero;
     }
 }
 

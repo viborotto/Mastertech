@@ -11,5 +11,4 @@ public interface ClienteClient {
     @GetMapping("/cliente/{id}")
     ClienteDTO getById(@PathVariable Long id);
 
-    //todo pagamento
 }

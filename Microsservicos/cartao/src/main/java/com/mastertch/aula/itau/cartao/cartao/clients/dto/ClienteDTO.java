@@ -4,6 +4,7 @@ import com.mastertch.aula.itau.cartao.cartao.model.Cartao;
 
 import java.util.List;
 
+//todo quando uso DTO?
 public class ClienteDTO {
 
     private Long clientId;
